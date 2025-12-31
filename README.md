@@ -1,4 +1,6 @@
 # illustrated-gospel
+https://stephen-swensen.github.io/illustrated-gospel/
+
 The Gospel in Illustrations - The Life of Jesus Christ in Word and Image
 
 This project was conceived and completed within 24 hours over Christmas break. Being the season, I was reading the book of Mark and had the idea of creating a standalone publication of individual bible books with illustrations. I've long appreciated illustrated bibles, no doubt because my early and transformative exposure to the gospel was in that form. My unique take was that publishing a single book - say, Mark - could be a more accessible form for readers, young in particular. After all, one short book is less intimidating than a large book of books!

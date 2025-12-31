@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="version" content="2">
+    <meta name="version" content="3">
     <meta name="author" content="Stephen Swensen">
     <meta name="description" content="The Gospel in Illustrations - The Life of Jesus Christ in Word and Image">
     <title>The Gospel in Illustrations - Stephen Swensen</title>
@@ -26,20 +26,23 @@
         .footer .attribution { margin-top: 30px; padding-top: 30px; border-top: 1px solid #5d4037; font-size: 15px; }
         .cross { font-size: 32px; margin: 20px 0; color: #d4af37; }
         
+        /* Hide cover image in web view */
+        #coverImage {
+            display: none;
+        }
+        
         /* Print styles */
         @media print {
             body { background: white; }
             
             .header { 
                 page-break-after: always;
-                padding: 120px 20px;
+                padding: 80px 20px;
             }
             
-            .header .cross-cover {
+            #coverImage {
                 display: block;
-                font-size: 120px;
-                margin: 40px 0;
-                font-style: normal;
+                margin: 30px auto;
             }
             
             /* Hide About page in print */
@@ -86,24 +89,13 @@
                 page-break-before: always;
             }
         }
-        
-        /* Hide cross on cover in web view */
-        .header .cross-cover {
-            display: none;
-        }
-        
-        @media print {
-            .header .cross-cover {
-                display: block;
-            }
-        }
     </style>
 </head>
 <body>
     <div class="header">
         <h1>The Gospel in Illustrations</h1>
         <p>The Life of Jesus Christ in Word and Image</p>
-        <p class="cross-cover">✞</p>
+        <canvas id="coverImage" width="600" height="400"></canvas>
     </div>
 
     <div class="scene about-page">
@@ -8113,6 +8105,217 @@
         drawAngel(700, 600);
 
     
+})();
+
+// Cover Image - Cross, Dove, and Divine Light
+(function() {
+    const canvas = document.getElementById('coverImage');
+    const ctx = canvas.getContext('2d');
+
+    // Sky background - heavenly
+    const skyGrad = ctx.createLinearGradient(0, 0, 0, 400);
+    skyGrad.addColorStop(0, '#87CEEB');
+    skyGrad.addColorStop(0.5, '#B0C4DE');
+    skyGrad.addColorStop(1, '#E6E6FA');
+    ctx.fillStyle = skyGrad;
+    ctx.fillRect(0, 0, 600, 400);
+
+    // Radiant divine light from center
+    const divineGlow = ctx.createRadialGradient(300, 200, 30, 300, 200, 250);
+    divineGlow.addColorStop(0, 'rgba(255, 255, 255, 1)');
+    divineGlow.addColorStop(0.3, 'rgba(255, 255, 240, 0.8)');
+    divineGlow.addColorStop(0.6, 'rgba(255, 215, 0, 0.4)');
+    divineGlow.addColorStop(1, 'rgba(255, 215, 0, 0)');
+    ctx.fillStyle = divineGlow;
+    ctx.fillRect(0, 0, 600, 400);
+
+    // Light rays emanating from center
+    ctx.strokeStyle = 'rgba(255, 255, 240, 0.5)';
+    ctx.lineWidth = 12;
+    for (let i = 0; i < 12; i++) {
+        const angle = (i * Math.PI) / 6;
+        ctx.beginPath();
+        ctx.moveTo(300, 200);
+        ctx.lineTo(300 + Math.cos(angle) * 350, 200 + Math.sin(angle) * 350);
+        ctx.stroke();
+    }
+
+    // Additional thinner rays
+    ctx.lineWidth = 5;
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.6)';
+    for (let i = 0; i < 12; i++) {
+        const angle = (i * Math.PI) / 6 + Math.PI / 12;
+        ctx.beginPath();
+        ctx.moveTo(300, 200);
+        ctx.lineTo(300 + Math.cos(angle) * 350, 200 + Math.sin(angle) * 350);
+        ctx.stroke();
+    }
+
+    // Large CROSS in center
+    const crossCenterX = 300;
+    const crossCenterY = 220;
+    const crossWidth = 25;
+    const crossHeight = 140;
+    const crossBeamWidth = 110;
+    const crossBeamHeight = 25;
+
+    // Cross shadow for depth
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+    ctx.fillRect(crossCenterX - crossWidth/2 + 5, crossCenterY - crossHeight/2 + 5, crossWidth, crossHeight);
+    ctx.fillRect(crossCenterX - crossBeamWidth/2 + 5, crossCenterY - crossBeamHeight/2 - 20 + 5, crossBeamWidth, crossBeamHeight);
+
+    // Cross - main vertical beam (smooth brown wood)
+    const crossGrad = ctx.createLinearGradient(crossCenterX - crossWidth/2, 0, crossCenterX + crossWidth/2, 0);
+    crossGrad.addColorStop(0, '#654321');
+    crossGrad.addColorStop(0.5, '#8B4513');
+    crossGrad.addColorStop(1, '#654321');
+    ctx.fillStyle = crossGrad;
+    ctx.fillRect(crossCenterX - crossWidth/2, crossCenterY - crossHeight/2, crossWidth, crossHeight);
+
+    // Cross - horizontal beam (smooth)
+    const beamGrad = ctx.createLinearGradient(0, crossCenterY - crossBeamHeight/2 - 20, 0, crossCenterY + crossBeamHeight/2 - 20);
+    beamGrad.addColorStop(0, '#654321');
+    beamGrad.addColorStop(0.5, '#8B4513');
+    beamGrad.addColorStop(1, '#654321');
+    ctx.fillStyle = beamGrad;
+    ctx.fillRect(crossCenterX - crossBeamWidth/2, crossCenterY - crossBeamHeight/2 - 20, crossBeamWidth, crossBeamHeight);
+
+    // Subtle highlights on left side of cross for roundness
+    ctx.fillStyle = 'rgba(160, 130, 109, 0.4)';
+    ctx.fillRect(crossCenterX - crossWidth/2, crossCenterY - crossHeight/2, 6, crossHeight);
+    ctx.fillRect(crossCenterX - crossBeamWidth/2, crossCenterY - crossBeamHeight/2 - 20, crossBeamWidth, 6);
+
+    // Golden halo around cross
+    ctx.strokeStyle = 'rgba(255, 215, 0, 0.8)';
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.arc(crossCenterX, crossCenterY, 95, 0, Math.PI * 2);
+    ctx.stroke();
+
+    ctx.strokeStyle = 'rgba(255, 215, 0, 0.4)';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.arc(crossCenterX, crossCenterY, 105, 0, Math.PI * 2);
+    ctx.stroke();
+
+    // DOVE above the cross - Holy Spirit
+    const doveX = 300;
+    const doveY = 110;
+    const dScale = 1.4;
+
+    // Dove glow
+    const doveGlow = ctx.createRadialGradient(doveX, doveY, 20 * dScale, doveX, doveY, 50 * dScale);
+    doveGlow.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
+    doveGlow.addColorStop(1, 'rgba(255, 255, 255, 0)');
+    ctx.fillStyle = doveGlow;
+    ctx.fillRect(doveX - 50 * dScale, doveY - 50 * dScale, 100 * dScale, 100 * dScale);
+
+    // Dove body
+    ctx.fillStyle = '#FFFFFF';
+    ctx.beginPath();
+    ctx.ellipse(doveX, doveY, 15 * dScale, 20 * dScale, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Dove head
+    ctx.beginPath();
+    ctx.arc(doveX, doveY - 18 * dScale, 10 * dScale, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Dove beak
+    ctx.fillStyle = '#FFD700';
+    ctx.beginPath();
+    ctx.moveTo(doveX + 8 * dScale, doveY - 18 * dScale);
+    ctx.lineTo(doveX + 15 * dScale, doveY - 17 * dScale);
+    ctx.lineTo(doveX + 8 * dScale, doveY - 16 * dScale);
+    ctx.closePath();
+    ctx.fill();
+
+    // Dove eye
+    ctx.fillStyle = '#000000';
+    ctx.beginPath();
+    ctx.arc(doveX + 3 * dScale, doveY - 20 * dScale, 2 * dScale, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Left wing - spread out
+    ctx.fillStyle = '#FFFFFF';
+    ctx.beginPath();
+    ctx.moveTo(doveX - 15 * dScale, doveY);
+    ctx.quadraticCurveTo(doveX - 50 * dScale, doveY - 25 * dScale, doveX - 65 * dScale, doveY - 15 * dScale);
+    ctx.quadraticCurveTo(doveX - 55 * dScale, doveY + 5 * dScale, doveX - 15 * dScale, doveY + 5 * dScale);
+    ctx.closePath();
+    ctx.fill();
+
+    // Wing feather details
+    ctx.strokeStyle = 'rgba(200, 200, 200, 0.5)';
+    ctx.lineWidth = 1.5;
+    for (let i = 0; i < 4; i++) {
+        ctx.beginPath();
+        ctx.moveTo(doveX - 20 * dScale - i * 10 * dScale, doveY);
+        ctx.lineTo(doveX - 25 * dScale - i * 12 * dScale, doveY - 15 * dScale);
+        ctx.stroke();
+    }
+
+    // Right wing - spread out
+    ctx.fillStyle = '#FFFFFF';
+    ctx.beginPath();
+    ctx.moveTo(doveX + 15 * dScale, doveY);
+    ctx.quadraticCurveTo(doveX + 50 * dScale, doveY - 25 * dScale, doveX + 65 * dScale, doveY - 15 * dScale);
+    ctx.quadraticCurveTo(doveX + 55 * dScale, doveY + 5 * dScale, doveX + 15 * dScale, doveY + 5 * dScale);
+    ctx.closePath();
+    ctx.fill();
+
+    // Right wing feather details
+    for (let i = 0; i < 4; i++) {
+        ctx.beginPath();
+        ctx.moveTo(doveX + 20 * dScale + i * 10 * dScale, doveY);
+        ctx.lineTo(doveX + 25 * dScale + i * 12 * dScale, doveY - 15 * dScale);
+        ctx.stroke();
+    }
+
+    // Tail feathers
+    ctx.fillStyle = '#FFFFFF';
+    ctx.beginPath();
+    ctx.moveTo(doveX, doveY + 20 * dScale);
+    ctx.lineTo(doveX - 8 * dScale, doveY + 35 * dScale);
+    ctx.lineTo(doveX, doveY + 30 * dScale);
+    ctx.lineTo(doveX + 8 * dScale, doveY + 35 * dScale);
+    ctx.closePath();
+    ctx.fill();
+
+    // Olive branch in dove's beak (symbol of peace)
+    ctx.strokeStyle = '#228B22';
+    ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    ctx.moveTo(doveX + 15 * dScale, doveY - 17 * dScale);
+    ctx.lineTo(doveX + 35 * dScale, doveY - 12 * dScale);
+    ctx.stroke();
+
+    // Olive leaves
+    ctx.fillStyle = '#228B22';
+    for (let i = 0; i < 3; i++) {
+        ctx.beginPath();
+        ctx.ellipse(doveX + 20 * dScale + i * 6 * dScale, doveY - 15 * dScale + i * 2 * dScale, 4 * dScale, 2 * dScale, Math.PI / 6, 0, Math.PI * 2);
+        ctx.fill();
+    }
+
+    // Ground/hill at bottom (subtle)
+    ctx.fillStyle = '#90EE90';
+    ctx.beginPath();
+    ctx.ellipse(300, 390, 280, 50, 0, Math.PI, 0);
+    ctx.fill();
+
+    // Grass details
+    ctx.strokeStyle = '#228B22';
+    ctx.lineWidth = 1.5;
+    for (let i = 0; i < 15; i++) {
+        const x = 50 + i * 35;
+        ctx.beginPath();
+        ctx.moveTo(x, 375);
+        ctx.lineTo(x - 2, 367);
+        ctx.moveTo(x, 375);
+        ctx.lineTo(x + 2, 369);
+        ctx.stroke();
+    }
 })();
 
     </script>

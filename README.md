@@ -9,6 +9,6 @@ Realizing my lack of artistic talent, I thought I might give AI prompted image g
 
 The final act was to stitch all the images together with companion scriptural quotes. I knew from previous research that the Berean Standard Bible (BSB) was a solid, royalty free option available in the public domain (in fact, the version of Mark I was reading was printed out from BSB PDFs available online). Claude did a fine job producing the final, static HTML artifact per my direction.
 
-The finished product is not what I originally conceived - a complete, single book of the gospel with accompanying images - but I think it is a worthy composite narrative of the life of Jesus and I will be happy with any reach to the glory of God it may achieve, big or small.
+The finished product is not what I originally conceived - a complete, single book of the gospel with accompanying images - but I think it is a worthy composite narrative of the life of Jesus and I will be happy with any reach may achieve, big or small, to God's glory.
 
 Blessings to all, Merry Christmas 2025!

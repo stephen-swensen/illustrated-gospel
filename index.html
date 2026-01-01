@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="version" content="7">
+    <meta name="version" content="8">
     <meta name="author" content="Stephen Swensen">
     <meta name="description" content="The Gospel in Illustrations - The Life of Jesus Christ in Word and Image">
     <title>The Gospel in Illustrations - Stephen Swensen</title>
@@ -24,6 +24,8 @@
         .footer { text-align: center; padding: 50px 40px; background: #2c1810; color: #d4af37; font-size: 14px; margin-top: 80px; line-height: 1.8; }
         .footer p { margin: 12px 0; }
         .footer .attribution { margin-top: 30px; padding-top: 30px; border-top: 1px solid #5d4037; font-size: 15px; }
+        .footer a { color: #ffd700; text-decoration: underline; }
+        .footer a:hover { color: #ffed4e; }
         .cross { font-size: 32px; margin: 20px 0; color: #d4af37; }
         
         /* Hide cover image in web view */
@@ -102,6 +104,11 @@
             
             .footer {
                 page-break-before: always;
+            }
+            
+            .footer a {
+                color: inherit;
+                text-decoration: none;
             }
         }
     </style>
@@ -484,14 +491,14 @@
 
     <div class="footer">
         <p class="cross">✠</p>
-        <p>Scripture quotations are from the Berean Standard Bible (BSB)</p>
-        <p>The Holy Bible, Berean Standard Bible, BSB is produced in cooperation with Bible Hub,</p>
-        <p>Discovery Bible, OpenBible.com, and the Berean Bible Translation Committee.</p>
+        <p>Scripture quotations are from the <a href="https://berean.bible/">Berean Standard Bible</a> (BSB)</p>
+        <p>The Holy Bible, Berean Standard Bible, BSB is produced in cooperation with <a href="https://biblehub.com/">Bible Hub</a>, <a href="https://discoverbible.com/">Discovery Bible</a>, <a href="https://openbible.com/">OpenBible.com</a>, and the Berean Bible Translation Committee.</p>
         
         <div class="attribution">
             <p><strong>Created by Stephen Swensen</strong></p>
             <p>All illustrations are original artwork by Stephen Swensen.</p>
-            <p><strong>© Stephen Swensen. All Rights Reserved.</strong></p>
+            <p>Source code available at <a href="https://github.com/stephen-swensen/illustrated-gospel">https://github.com/stephen-swensen/illustrated-gospel</a></p>
+            <p><strong>© 2025-2026 Stephen Swensen. All Rights Reserved.</strong></p>
         </div>
     </div>
 

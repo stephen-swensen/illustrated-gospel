@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="version" content="4">
+    <meta name="version" content="5">
     <meta name="author" content="Stephen Swensen">
     <meta name="description" content="The Gospel in Illustrations - The Life of Jesus Christ in Word and Image">
     <title>The Gospel in Illustrations - Stephen Swensen</title>
@@ -4461,21 +4461,20 @@
         ctx.closePath();
         ctx.fill();
 
-        // Beard
-        ctx.beginPath();
-        ctx.moveTo(jesusX - 16, jesusY - 8);
-        ctx.quadraticCurveTo(jesusX, jesusY + 5, jesusX + 16, jesusY - 8);
-        ctx.lineTo(jesusX + 13, jesusY - 12);
-        ctx.quadraticCurveTo(jesusX, jesusY, jesusX - 13, jesusY - 12);
-        ctx.closePath();
-        ctx.fill();
-
         // Eyes looking forward with determination
         ctx.fillStyle = '#2C1810';
         ctx.beginPath();
         ctx.arc(jesusX - 8, jesusY - 20, 3, 0, Math.PI * 2);
         ctx.arc(jesusX + 8, jesusY - 20, 3, 0, Math.PI * 2);
         ctx.fill();
+        
+        // Calm, reassuring smile
+        ctx.strokeStyle = '#A0826D';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(jesusX - 10, jesusY - 8);
+        ctx.quadraticCurveTo(jesusX, jesusY - 6, jesusX + 10, jesusY - 8);
+        ctx.stroke();
 
         // Hands
         ctx.fillStyle = '#D2A179';
@@ -4828,21 +4827,20 @@
             ctx.arc(x, y - 35, 27, Math.PI, Math.PI * 2);
             ctx.fill();
 
-            // Beard (for all three figures)
-            ctx.beginPath();
-            ctx.moveTo(x - 15, y - 15);
-            ctx.quadraticCurveTo(x, y, x + 15, y - 15);
-            ctx.lineTo(x + 12, y - 20);
-            ctx.quadraticCurveTo(x, y - 5, x - 12, y - 20);
-            ctx.closePath();
-            ctx.fill();
-
             // Eyes
             ctx.fillStyle = '#2C1810';
             ctx.beginPath();
             ctx.arc(x - 8, y - 25, 2, 0, Math.PI * 2);
             ctx.arc(x + 8, y - 25, 2, 0, Math.PI * 2);
             ctx.fill();
+            
+            // Peaceful smile
+            ctx.strokeStyle = '#A0826D';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(x - 10, y - 12);
+            ctx.quadraticCurveTo(x, y - 10, x + 10, y - 12);
+            ctx.stroke();
 
             // Hands
             ctx.fillStyle = '#D2A179';

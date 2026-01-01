@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="version" content="5">
+    <meta name="version" content="6">
     <meta name="author" content="Stephen Swensen">
     <meta name="description" content="The Gospel in Illustrations - The Life of Jesus Christ in Word and Image">
     <title>The Gospel in Illustrations - Stephen Swensen</title>
@@ -3967,344 +3967,384 @@
 (function() {
 
         const joyful = document.getElementById('scene9');
-        const ctx = joyful.getContext('2d');
-
-        // Sky
-        const skyg = ctx.createLinearGradient(0, 0, 0, 250);
-        skyg.addColorStop(0, '#87CEEB');
-        skyg.addColorStop(1, '#B0E0E6');
-        ctx.fillStyle = skyg;
-        ctx.fillRect(0, 0, 900, 250);
-
-        // Hills in background
-        ctx.fillStyle = '#8FBC8F';
-        ctx.beginPath();
-        ctx.moveTo(0, 200);
-        ctx.quadraticCurveTo(150, 150, 300, 200);
-        ctx.quadraticCurveTo(450, 160, 600, 200);
-        ctx.quadraticCurveTo(750, 170, 900, 200);
-        ctx.lineTo(900, 250);
-        ctx.lineTo(0, 250);
-        ctx.closePath();
-        ctx.fill();
-
-        // Grass/hillside
-        const grassg = ctx.createLinearGradient(0, 250, 0, 700);
-        grassg.addColorStop(0, '#90C878');
-        grassg.addColorStop(1, '#7AB55C');
-        ctx.fillStyle = grassg;
-        ctx.fillRect(0, 250, 900, 450);
-
-        // Grass texture
-        ctx.strokeStyle = '#6B9D4F';
-        ctx.lineWidth = 1;
-        for (let i = 0; i < 150; i++) {
-            const x = Math.random() * 900;
-            const y = 250 + Math.random() * 450;
-            ctx.beginPath();
-            ctx.moveTo(x, y);
-            ctx.lineTo(x + Math.random() * 4 - 2, y - 8 - Math.random() * 6);
-            ctx.stroke();
-        }
-
-        // Sea of Galilee in distance
-        ctx.fillStyle = '#4682B4';
-        ctx.beginPath();
-        ctx.moveTo(0, 180);
-        ctx.quadraticCurveTo(300, 165, 600, 180);
-        ctx.lineTo(600, 200);
-        ctx.quadraticCurveTo(300, 185, 0, 200);
-        ctx.closePath();
-        ctx.fill();
-
-        // Clouds
-        const cloud = (x, y, scale) => {
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-            ctx.beginPath();
-            ctx.arc(x, y, 20 * scale, 0, Math.PI * 2);
-            ctx.arc(x + 25 * scale, y, 25 * scale, 0, Math.PI * 2);
-            ctx.arc(x + 50 * scale, y, 20 * scale, 0, Math.PI * 2);
-            ctx.fill();
-        };
-        cloud(100, 80, 1);
-        cloud(600, 60, 0.8);
-        cloud(750, 100, 1.2);
-
-        // Function to draw person sitting - NO BEARDS, HAPPY
-        const sittingPerson = (x, y, robecolor) => {
-            // Sitting body
-            ctx.fillStyle = robecolor;
-            ctx.beginPath();
-            ctx.ellipse(x, y + 20, 25, 15, 0, 0, Math.PI * 2);
-            ctx.fill();
-            
-            // Torso
-            ctx.beginPath();
-            ctx.moveTo(x, y - 10);
-            ctx.lineTo(x - 20, y + 20);
-            ctx.lineTo(x + 20, y + 20);
-            ctx.closePath();
-            ctx.fill();
-
-            // Arms
-            ctx.beginPath();
-            ctx.ellipse(x - 18, y + 5, 6, 12, -Math.PI / 6, 0, Math.PI * 2);
-            ctx.ellipse(x + 18, y + 5, 6, 12, Math.PI / 6, 0, Math.PI * 2);
-            ctx.fill();
-
-            // Hands
-            ctx.fillStyle = '#D2A179';
-            ctx.beginPath();
-            ctx.arc(x - 22, y + 8, 5, 0, Math.PI * 2);
-            ctx.arc(x + 22, y + 8, 5, 0, Math.PI * 2);
-            ctx.fill();
-
-            // Randomly show people holding bread or fish
-            const foodType = Math.random();
-            if (foodType < 0.6) {
-                // Holding bread
-                ctx.fillStyle = '#D2A679';
+                const ctx = joyful.getContext('2d');
+        
+                // Sky
+                const skyg = ctx.createLinearGradient(0, 0, 0, 250);
+                skyg.addColorStop(0, '#87CEEB');
+                skyg.addColorStop(1, '#B0E0E6');
+                ctx.fillStyle = skyg;
+                ctx.fillRect(0, 0, 900, 250);
+        
+                // Hills in background
+                ctx.fillStyle = '#8FBC8F';
                 ctx.beginPath();
-                ctx.ellipse(x - 22, y + 2, 6, 4, Math.PI / 4, 0, Math.PI * 2);
+                ctx.moveTo(0, 200);
+                ctx.quadraticCurveTo(150, 150, 300, 200);
+                ctx.quadraticCurveTo(450, 160, 600, 200);
+                ctx.quadraticCurveTo(750, 170, 900, 200);
+                ctx.lineTo(900, 250);
+                ctx.lineTo(0, 250);
+                ctx.closePath();
                 ctx.fill();
-            } else if (foodType < 0.9) {
-                // Holding fish
+        
+                // Grass/hillside
+                const grassg = ctx.createLinearGradient(0, 250, 0, 700);
+                grassg.addColorStop(0, '#90C878');
+                grassg.addColorStop(1, '#7AB55C');
+                ctx.fillStyle = grassg;
+                ctx.fillRect(0, 250, 900, 450);
+        
+                // Grass texture
+                ctx.strokeStyle = '#6B9D4F';
+                ctx.lineWidth = 1;
+                for (let i = 0; i < 150; i++) {
+                    const x = Math.random() * 900;
+                    const y = 250 + Math.random() * 450;
+                    ctx.beginPath();
+                    ctx.moveTo(x, y);
+                    ctx.lineTo(x + Math.random() * 4 - 2, y - 8 - Math.random() * 6);
+                    ctx.stroke();
+                }
+        
+                // Sea of Galilee in distance
+                ctx.fillStyle = '#4682B4';
+                ctx.beginPath();
+                ctx.moveTo(0, 180);
+                ctx.quadraticCurveTo(300, 165, 600, 180);
+                ctx.lineTo(600, 200);
+                ctx.quadraticCurveTo(300, 185, 0, 200);
+                ctx.closePath();
+                ctx.fill();
+        
+                // Clouds
+                const cloud = (x, y, scale) => {
+                    ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+                    ctx.beginPath();
+                    ctx.arc(x, y, 20 * scale, 0, Math.PI * 2);
+                    ctx.arc(x + 25 * scale, y, 25 * scale, 0, Math.PI * 2);
+                    ctx.arc(x + 50 * scale, y, 20 * scale, 0, Math.PI * 2);
+                    ctx.fill();
+                };
+                cloud(100, 80, 1);
+                cloud(600, 60, 0.8);
+                cloud(750, 100, 1.2);
+        
+                // Function to draw person sitting - NO BEARDS, HAPPY
+                const sittingPerson = (x, y, robecolor) => {
+                    // Sitting body
+                    ctx.fillStyle = robecolor;
+                    ctx.beginPath();
+                    ctx.ellipse(x, y + 20, 25, 15, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    
+                    // Torso
+                    ctx.beginPath();
+                    ctx.moveTo(x, y - 10);
+                    ctx.lineTo(x - 20, y + 20);
+                    ctx.lineTo(x + 20, y + 20);
+                    ctx.closePath();
+                    ctx.fill();
+        
+                    // Arms resting in lap - more natural position
+                    ctx.fillStyle = robecolor;
+                    ctx.beginPath();
+                    ctx.ellipse(x - 12, y + 12, 8, 10, -Math.PI / 8, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.ellipse(x + 12, y + 12, 8, 10, Math.PI / 8, 0, Math.PI * 2);
+                    ctx.fill();
+        
+                    // Hands in lap
+                    ctx.fillStyle = '#D2A179';
+                    ctx.beginPath();
+                    ctx.arc(x - 8, y + 18, 4, 0, Math.PI * 2);
+                    ctx.arc(x + 8, y + 18, 4, 0, Math.PI * 2);
+                    ctx.fill();
+        
+                    // Randomly show people holding bread or fish in lap
+                    const foodType = Math.random();
+                    if (foodType < 0.6) {
+                        // Holding bread in lap
+                        ctx.fillStyle = '#D2A679';
+                        ctx.beginPath();
+                        ctx.ellipse(x, y + 15, 6, 4, 0, 0, Math.PI * 2);
+                        ctx.fill();
+                    } else if (foodType < 0.9) {
+                        // Holding fish in lap
+                        ctx.fillStyle = '#8B9DC3';
+                        ctx.beginPath();
+                        ctx.ellipse(x, y + 16, 7, 3, Math.PI / 6, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+        
+                    // Head
+                    ctx.fillStyle = '#D2A179';
+                    ctx.beginPath();
+                    ctx.arc(x, y - 20, 12, 0, Math.PI * 2);
+                    ctx.fill();
+        
+                    // Hair
+                    ctx.fillStyle = '#3E2723';
+                    ctx.beginPath();
+                    ctx.arc(x, y - 25, 13, Math.PI, Math.PI * 2);
+                    ctx.fill();
+        
+                    // NO BEARD
+        
+                    // Eyes
+                    ctx.fillStyle = '#000000';
+                    ctx.beginPath();
+                    ctx.arc(x - 4, y - 20, 1.5, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(x + 4, y - 20, 1.5, 0, Math.PI * 2);
+                    ctx.fill();
+        
+                    // Happy smile - gentle upward curve
+                    ctx.strokeStyle = '#A0826D';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(x - 4, y - 15);
+                    ctx.quadraticCurveTo(x, y - 13, x + 4, y - 15);
+                    ctx.stroke();
+                };
+        
+                // Function to draw standing person - NO BEARDS
+                const standingPerson = (x, y, robecolor, isJesus = false) => {
+                    const scale = isJesus ? 1.4 : 1.0;
+                    
+                    // Robe
+                    ctx.fillStyle = robecolor;
+                    ctx.beginPath();
+                    ctx.moveTo(x, y);
+                    ctx.lineTo(x - 30 * scale, y + 80 * scale);
+                    ctx.lineTo(x + 30 * scale, y + 80 * scale);
+                    ctx.closePath();
+                    ctx.fill();
+        
+                    // Arms
+                    ctx.beginPath();
+                    ctx.moveTo(x - 15 * scale, y + 10 * scale);
+                    ctx.lineTo(x - 40 * scale, y + 45 * scale);
+                    ctx.lineTo(x - 30 * scale, y + 50 * scale);
+                    ctx.lineTo(x - 12 * scale, y + 15 * scale);
+                    ctx.closePath();
+                    ctx.fill();
+        
+                    ctx.beginPath();
+                    ctx.moveTo(x + 15 * scale, y + 10 * scale);
+                    ctx.lineTo(x + 40 * scale, y + 45 * scale);
+                    ctx.lineTo(x + 30 * scale, y + 50 * scale);
+                    ctx.lineTo(x + 12 * scale, y + 15 * scale);
+                    ctx.closePath();
+                    ctx.fill();
+        
+                    // Head
+                    ctx.fillStyle = '#D2A179';
+                    ctx.beginPath();
+                    ctx.arc(x, y - 15 * scale, 18 * scale, 0, Math.PI * 2);
+                    ctx.fill();
+        
+                    // Hair
+                    ctx.fillStyle = '#3E2723';
+                    ctx.beginPath();
+                    ctx.arc(x, y - 22 * scale, 19 * scale, Math.PI, Math.PI * 2);
+                    ctx.fill();
+        
+                    // NO BEARD
+        
+                    // Eyes
+                    ctx.fillStyle = '#2C1810';
+                    ctx.beginPath();
+                    ctx.arc(x - 6 * scale, y - 15 * scale, 2 * scale, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(x + 6 * scale, y - 15 * scale, 2 * scale, 0, Math.PI * 2);
+                    ctx.fill();
+        
+                    // Gentle smile
+                    ctx.strokeStyle = '#A0826D';
+                    ctx.lineWidth = 1.5 * scale;
+                    ctx.beginPath();
+                    ctx.moveTo(x - 6 * scale, y - 8 * scale);
+                    ctx.quadraticCurveTo(x, y - 6 * scale, x + 6 * scale, y - 8 * scale);
+                    ctx.stroke();
+        
+                    // Hands
+                    ctx.fillStyle = '#D2A179';
+                    ctx.beginPath();
+                    ctx.arc(x - 35 * scale, y + 48 * scale, 7 * scale, 0, Math.PI * 2);
+                    ctx.arc(x + 35 * scale, y + 48 * scale, 7 * scale, 0, Math.PI * 2);
+                    ctx.fill();
+        
+                    if (isJesus) {
+                        // Halo
+                        ctx.strokeStyle = 'rgba(255, 215, 0, 0.8)';
+                        ctx.lineWidth = 4;
+                        ctx.beginPath();
+                        ctx.arc(x, y - 15 * scale, 28 * scale, 0, Math.PI * 2);
+                        ctx.stroke();
+                        
+                        // Divine glow
+                        const glow = ctx.createRadialGradient(x, y - 15 * scale, 20 * scale, x, y - 15 * scale, 80 * scale);
+                        glow.addColorStop(0, 'rgba(255, 255, 240, 0.5)');
+                        glow.addColorStop(1, 'rgba(255, 255, 240, 0)');
+                        ctx.fillStyle = glow;
+                        ctx.fillRect(x - 80 * scale, y - 95 * scale, 160 * scale, 160 * scale);
+                    }
+                };
+        
+                // Twelve baskets of leftovers
+                const drawBasket = (x, y) => {
+                    // Basket
+                    ctx.fillStyle = '#8B6F47';
+                    ctx.beginPath();
+                    ctx.moveTo(x - 15, y + 10);
+                    ctx.lineTo(x - 12, y - 5);
+                    ctx.lineTo(x + 12, y - 5);
+                    ctx.lineTo(x + 15, y + 10);
+                    ctx.closePath();
+                    ctx.fill();
+                    
+                    // Weave pattern
+                    ctx.strokeStyle = '#6B5344';
+                    ctx.lineWidth = 1;
+                    for (let i = 0; i < 4; i++) {
+                        ctx.beginPath();
+                        ctx.moveTo(x - 12, y - 3 + i * 4);
+                        ctx.lineTo(x + 12, y - 3 + i * 4);
+                        ctx.stroke();
+                    }
+                    
+                    // Bread pieces overflowing
+                    ctx.fillStyle = '#D2A679';
+                    ctx.beginPath();
+                    ctx.ellipse(x - 8, y - 8, 5, 3, 0.3, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.ellipse(x + 6, y - 7, 4, 3, -0.2, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.ellipse(x, y - 10, 5, 4, 0.5, 0, Math.PI * 2);
+                    ctx.fill();
+                    
+                    // Fish piece
+                    ctx.fillStyle = '#8B9DC3';
+                    ctx.beginPath();
+                    ctx.ellipse(x + 3, y - 5, 6, 3, 0.4, 0, Math.PI * 2);
+                    ctx.fill();
+                };
+        
+                // Twelve baskets scattered around the scene
+                drawBasket(120, 380);
+                drawBasket(220, 420);
+                drawBasket(180, 550);
+                drawBasket(280, 640);
+                drawBasket(380, 360);
+                drawBasket(520, 360);
+                drawBasket(620, 640);
+                drawBasket(720, 550);
+                drawBasket(680, 420);
+                drawBasket(780, 380);
+                drawBasket(350, 640);
+                drawBasket(550, 640);
+        
+                // Fewer people in groups - REDUCED
+                const colors = ['#8B6F47', '#6B5344', '#7B6354', '#5B4636', '#4A3728'];
+                
+                // Track occupied positions to prevent overlap
+                const occupiedPositions = [];
+                const minDistance = 35; // Minimum distance between people
+                
+                const isPositionClear = (x, y) => {
+                    for (let pos of occupiedPositions) {
+                        const dist = Math.sqrt((x - pos.x) ** 2 + (y - pos.y) ** 2);
+                        if (dist < minDistance) return false;
+                    }
+                    return true;
+                };
+                
+                // More natural grouping function with overlap prevention
+                const drawGroup = (centerX, centerY, count, spread) => {
+                    let placed = 0;
+                    let attempts = 0;
+                    const maxAttempts = count * 20; // Prevent infinite loops
+                    
+                    while (placed < count && attempts < maxAttempts) {
+                        const angle = Math.random() * Math.PI * 2;
+                        const distance = (Math.random() + Math.random()) / 2 * spread;
+                        const x = centerX + Math.cos(angle) * distance;
+                        const y = centerY + Math.sin(angle) * distance * 0.8;
+                        
+                        if (isPositionClear(x, y)) {
+                            const color = colors[Math.floor(Math.random() * colors.length)];
+                            sittingPerson(x, y, color);
+                            occupiedPositions.push({x, y});
+                            placed++;
+                        }
+                        attempts++;
+                    }
+                };
+        
+                // Natural clusters - left and right sides, upper area, avoiding directly behind Jesus
+                // Upper left and right (not center)
+                drawGroup(200, 360, 9, 100);
+                drawGroup(700, 360, 9, 100);
+        
+                // Middle left and right
+                drawGroup(180, 490, 11, 110);
+                drawGroup(720, 490, 11, 110);
+        
+                // Lower left and right
+                drawGroup(220, 610, 8, 95);
+                drawGroup(680, 610, 8, 95);
+        
+                // Jesus in center - LARGER and prominent, holding loaves and fish
+                standingPerson(450, 480, '#FFFFFF', true);
+        
+                // Five loaves above Jesus's hands
+                ctx.fillStyle = '#D2A679';
+                for (let i = 0; i < 5; i++) {
+                    ctx.beginPath();
+                    ctx.ellipse(420 + i * 15, 530, 10, 7, i * 0.2, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+        
+                // Two fish
                 ctx.fillStyle = '#8B9DC3';
                 ctx.beginPath();
-                ctx.ellipse(x - 24, y + 4, 7, 3, Math.PI / 6, 0, Math.PI * 2);
+                ctx.ellipse(430, 545, 15, 6, Math.PI / 6, 0, Math.PI * 2);
                 ctx.fill();
-            }
-
-            // Head
-            ctx.fillStyle = '#D2A179';
-            ctx.beginPath();
-            ctx.arc(x, y - 20, 12, 0, Math.PI * 2);
-            ctx.fill();
-
-            // Hair
-            ctx.fillStyle = '#3E2723';
-            ctx.beginPath();
-            ctx.arc(x, y - 25, 13, Math.PI, Math.PI * 2);
-            ctx.fill();
-
-            // NO BEARD
-
-            // Eyes
-            ctx.fillStyle = '#000000';
-            ctx.beginPath();
-            ctx.arc(x - 4, y - 20, 1.5, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.beginPath();
-            ctx.arc(x + 4, y - 20, 1.5, 0, Math.PI * 2);
-            ctx.fill();
-
-            // Happy smile - gentle upward curve
-            ctx.strokeStyle = '#A0826D';
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(x - 4, y - 15);
-            ctx.quadraticCurveTo(x, y - 13, x + 4, y - 15);
-            ctx.stroke();
-        };
-
-        // Function to draw standing person - NO BEARDS
-        const standingPerson = (x, y, robecolor, isJesus = false) => {
-            const scale = isJesus ? 1.4 : 1.0;
-            
-            // Robe
-            ctx.fillStyle = robecolor;
-            ctx.beginPath();
-            ctx.moveTo(x, y);
-            ctx.lineTo(x - 30 * scale, y + 80 * scale);
-            ctx.lineTo(x + 30 * scale, y + 80 * scale);
-            ctx.closePath();
-            ctx.fill();
-
-            // Arms
-            ctx.beginPath();
-            ctx.moveTo(x - 15 * scale, y + 10 * scale);
-            ctx.lineTo(x - 40 * scale, y + 45 * scale);
-            ctx.lineTo(x - 30 * scale, y + 50 * scale);
-            ctx.lineTo(x - 12 * scale, y + 15 * scale);
-            ctx.closePath();
-            ctx.fill();
-
-            ctx.beginPath();
-            ctx.moveTo(x + 15 * scale, y + 10 * scale);
-            ctx.lineTo(x + 40 * scale, y + 45 * scale);
-            ctx.lineTo(x + 30 * scale, y + 50 * scale);
-            ctx.lineTo(x + 12 * scale, y + 15 * scale);
-            ctx.closePath();
-            ctx.fill();
-
-            // Head
-            ctx.fillStyle = '#D2A179';
-            ctx.beginPath();
-            ctx.arc(x, y - 15 * scale, 18 * scale, 0, Math.PI * 2);
-            ctx.fill();
-
-            // Hair
-            ctx.fillStyle = '#3E2723';
-            ctx.beginPath();
-            ctx.arc(x, y - 22 * scale, 19 * scale, Math.PI, Math.PI * 2);
-            ctx.fill();
-
-            // NO BEARD
-
-            // Eyes
-            ctx.fillStyle = '#2C1810';
-            ctx.beginPath();
-            ctx.arc(x - 6 * scale, y - 15 * scale, 2 * scale, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.beginPath();
-            ctx.arc(x + 6 * scale, y - 15 * scale, 2 * scale, 0, Math.PI * 2);
-            ctx.fill();
-
-            // Gentle smile
-            ctx.strokeStyle = '#A0826D';
-            ctx.lineWidth = 1.5 * scale;
-            ctx.beginPath();
-            ctx.moveTo(x - 6 * scale, y - 8 * scale);
-            ctx.quadraticCurveTo(x, y - 6 * scale, x + 6 * scale, y - 8 * scale);
-            ctx.stroke();
-
-            // Hands
-            ctx.fillStyle = '#D2A179';
-            ctx.beginPath();
-            ctx.arc(x - 35 * scale, y + 48 * scale, 7 * scale, 0, Math.PI * 2);
-            ctx.arc(x + 35 * scale, y + 48 * scale, 7 * scale, 0, Math.PI * 2);
-            ctx.fill();
-
-            if (isJesus) {
-                // Halo
-                ctx.strokeStyle = 'rgba(255, 215, 0, 0.8)';
-                ctx.lineWidth = 4;
-                ctx.beginPath();
-                ctx.arc(x, y - 15 * scale, 28 * scale, 0, Math.PI * 2);
-                ctx.stroke();
                 
-                // Divine glow
-                const glow = ctx.createRadialGradient(x, y - 15 * scale, 20 * scale, x, y - 15 * scale, 80 * scale);
-                glow.addColorStop(0, 'rgba(255, 255, 240, 0.5)');
-                glow.addColorStop(1, 'rgba(255, 255, 240, 0)');
-                ctx.fillStyle = glow;
-                ctx.fillRect(x - 80 * scale, y - 95 * scale, 160 * scale, 160 * scale);
-            }
-        };
-
-        // Scattered bread and fish on the ground - FEWER
-        const drawBread = (x, y, size) => {
-            ctx.fillStyle = '#D2A679';
-            ctx.beginPath();
-            ctx.ellipse(x, y, size * 8, size * 5, Math.random() * Math.PI, 0, Math.PI * 2);
-            ctx.fill();
-        };
-
-        const drawFish = (x, y, size) => {
-            ctx.fillStyle = '#8B9DC3';
-            ctx.beginPath();
-            ctx.ellipse(x, y, size * 9, size * 4, Math.random() * Math.PI / 2, 0, Math.PI * 2);
-            ctx.fill();
-            
-            // Tail
-            const angle = Math.random() * Math.PI / 2;
-            ctx.beginPath();
-            ctx.moveTo(x + Math.cos(angle) * size * 8, y + Math.sin(angle) * size * 3);
-            ctx.lineTo(x + Math.cos(angle) * size * 12, y + Math.sin(angle) * size * 2);
-            ctx.lineTo(x + Math.cos(angle) * size * 11, y + Math.sin(angle) * size * 5);
-            ctx.closePath();
-            ctx.fill();
-        };
-
-        // Less bread and fish - reduced from 40 to 20
-        for (let i = 0; i < 20; i++) {
-            const x = 150 + Math.random() * 600;
-            const y = 350 + Math.random() * 250;
-            if (Math.random() < 0.6) {
-                drawBread(x, y, 1 + Math.random() * 0.5);
-            } else {
-                drawFish(x, y, 1 + Math.random() * 0.4);
-            }
-        }
-
-        // Fewer people in groups - REDUCED
-        const colors = ['#8B6F47', '#6B5344', '#7B6354', '#5B4636', '#4A3728'];
+                ctx.fillStyle = '#A4B8D4';
+                ctx.beginPath();
+                ctx.ellipse(460, 543, 14, 5, -Math.PI / 6, 0, Math.PI * 2);
+                ctx.fill();
         
-        const drawGroup = (centerX, centerY, count, spacing) => {
-            const rows = Math.ceil(Math.sqrt(count));
-            const cols = Math.ceil(count / rows);
-            let personIndex = 0;
-            
-            for (let row = 0; row < rows && personIndex < count; row++) {
-                for (let col = 0; col < cols && personIndex < count; col++) {
-                    const x = centerX - (cols * spacing / 2) + col * spacing + spacing / 2;
-                    const y = centerY - (rows * spacing / 2) + row * spacing + spacing / 2;
-                    const color = colors[Math.floor(Math.random() * colors.length)];
-                    sittingPerson(x, y, color);
-                    personIndex++;
+                // Disciples distributing food
+                standingPerson(350, 520, '#6B5344');
+                standingPerson(550, 520, '#7B6354');
+                standingPerson(280, 540, '#8B6F47');
+        
+                // Sun
+                ctx.fillStyle = '#FFD700';
+                ctx.beginPath();
+                ctx.arc(750, 80, 35, 0, Math.PI * 2);
+                ctx.fill();
+        
+                // Sun rays
+                ctx.strokeStyle = 'rgba(255, 215, 0, 0.5)';
+                ctx.lineWidth = 3;
+                for (let i = 0; i < 12; i++) {
+                    const angle = (Math.PI * 2 / 12) * i;
+                    ctx.beginPath();
+                    ctx.moveTo(750 + Math.cos(angle) * 45, 80 + Math.sin(angle) * 45);
+                    ctx.lineTo(750 + Math.cos(angle) * 60, 80 + Math.sin(angle) * 60);
+                    ctx.stroke();
                 }
-            }
-        };
-
-        // Fewer groups and fewer people per group
-        drawGroup(180, 320, 8, 45);
-        drawGroup(450, 330, 10, 45);
-        drawGroup(680, 320, 8, 45);
-
-        drawGroup(150, 460, 10, 50);
-        drawGroup(400, 470, 12, 50);
-        drawGroup(700, 460, 10, 50);
-
-        drawGroup(250, 590, 8, 55);
-        drawGroup(600, 590, 8, 55);
-
-        // Jesus in center - LARGER and prominent, holding loaves and fish
-        standingPerson(450, 480, '#FFFFFF', true);
-
-        // Five loaves above Jesus's hands
-        ctx.fillStyle = '#D2A679';
-        for (let i = 0; i < 5; i++) {
-            ctx.beginPath();
-            ctx.ellipse(420 + i * 15, 530, 10, 7, i * 0.2, 0, Math.PI * 2);
-            ctx.fill();
-        }
-
-        // Two fish
-        ctx.fillStyle = '#8B9DC3';
-        ctx.beginPath();
-        ctx.ellipse(430, 545, 15, 6, Math.PI / 6, 0, Math.PI * 2);
-        ctx.fill();
-        
-        ctx.fillStyle = '#A4B8D4';
-        ctx.beginPath();
-        ctx.ellipse(460, 543, 14, 5, -Math.PI / 6, 0, Math.PI * 2);
-        ctx.fill();
-
-        // Disciples distributing food
-        standingPerson(350, 520, '#6B5344');
-        standingPerson(550, 520, '#7B6354');
-        standingPerson(280, 540, '#8B6F47');
-
-        // Sun
-        ctx.fillStyle = '#FFD700';
-        ctx.beginPath();
-        ctx.arc(750, 80, 35, 0, Math.PI * 2);
-        ctx.fill();
-
-        // Sun rays
-        ctx.strokeStyle = 'rgba(255, 215, 0, 0.5)';
-        ctx.lineWidth = 3;
-        for (let i = 0; i < 12; i++) {
-            const angle = (Math.PI * 2 / 12) * i;
-            ctx.beginPath();
-            ctx.moveTo(750 + Math.cos(angle) * 45, 80 + Math.sin(angle) * 45);
-            ctx.lineTo(750 + Math.cos(angle) * 60, 80 + Math.sin(angle) * 60);
-            ctx.stroke();
-        }
-
     
 })();
-
 // Jesus Walks on Water
 (function() {
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="version" content="3">
+    <meta name="version" content="4">
     <meta name="author" content="Stephen Swensen">
     <meta name="description" content="The Gospel in Illustrations - The Life of Jesus Christ in Word and Image">
     <title>The Gospel in Illustrations - Stephen Swensen</title>
@@ -319,7 +319,7 @@
             </div>
         </div>
         <div class="image-container">
-            <canvas id="scene11" width="800" height="900"></canvas>
+            <canvas id="scene11" width="800" height="800"></canvas>
         </div>
     </div>
 
@@ -4736,13 +4736,13 @@
         // Mountain
         ctx.fillStyle = '#5a4a3a';
         ctx.beginPath();
-        ctx.moveTo(0, 500);
+        ctx.moveTo(0, 450);
         ctx.lineTo(200, 300);
-        ctx.lineTo(400, 400);
+        ctx.lineTo(400, 380);
         ctx.lineTo(600, 300);
-        ctx.lineTo(800, 500);
-        ctx.lineTo(800, 900);
-        ctx.lineTo(0, 900);
+        ctx.lineTo(800, 450);
+        ctx.lineTo(800, 800);
+        ctx.lineTo(0, 800);
         ctx.closePath();
         ctx.fill();
 
@@ -4750,9 +4750,9 @@
         ctx.fillStyle = '#6a5a4a';
         ctx.beginPath();
         ctx.moveTo(200, 300);
-        ctx.lineTo(250, 350);
-        ctx.lineTo(300, 380);
-        ctx.lineTo(400, 400);
+        ctx.lineTo(250, 340);
+        ctx.lineTo(300, 365);
+        ctx.lineTo(400, 380);
         ctx.closePath();
         ctx.fill();
 
@@ -4904,46 +4904,6 @@
         ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
         ctx.beginPath();
         ctx.ellipse(400, 400, 200, 100, 0, 0, Math.PI * 2);
-        ctx.fill();
-
-        // Three disciples below, prostrate/kneeling
-        const drawDisciple = (x, y, color) => {
-            // Prostrate body
-            ctx.fillStyle = color;
-            ctx.beginPath();
-            ctx.ellipse(x, y, 35, 20, 0, 0, Math.PI * 2);
-            ctx.fill();
-
-            // Head bowed down
-            ctx.fillStyle = '#D2A179';
-            ctx.beginPath();
-            ctx.arc(x - 25, y - 5, 12, 0, Math.PI * 2);
-            ctx.fill();
-
-            // Hair
-            ctx.fillStyle = '#3E2723';
-            ctx.beginPath();
-            ctx.arc(x - 25, y - 10, 13, Math.PI, Math.PI * 2);
-            ctx.fill();
-
-            // Arms covering face
-            ctx.fillStyle = color;
-            ctx.beginPath();
-            ctx.ellipse(x - 15, y, 8, 15, -Math.PI / 6, 0, Math.PI * 2);
-            ctx.fill();
-        };
-
-        // Peter, James, and John - overwhelmed by the vision
-        drawDisciple(280, 550, '#6B4423');
-        drawDisciple(400, 570, '#4A5D23');
-        drawDisciple(520, 550, '#5B3A29');
-
-        // Rocks on mountain
-        ctx.fillStyle = '#4a3a2a';
-        ctx.beginPath();
-        ctx.arc(150, 520, 30, 0, Math.PI * 2);
-        ctx.arc(650, 540, 25, 0, Math.PI * 2);
-        ctx.arc(100, 600, 20, 0, Math.PI * 2);
         ctx.fill();
 
         // Stars beginning to appear in the darkening sky

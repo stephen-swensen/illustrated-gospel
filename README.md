@@ -1,5 +1,5 @@
 # illustrated-gospel
-https://stephen-swensen.github.io/illustrated-gospel/
+https://illustratedgospel.faith/
 
 The Gospel in Illustrations - The Life of Jesus Christ in Word and Image
 

@@ -12,3 +12,9 @@ The final act was to stitch all the images together with companion scriptural qu
 The finished product is not what I originally conceived - a complete, single book of the gospel with accompanying images - but I think it is a worthy composite narrative of the life of Jesus and I will be happy with any reach it may achieve, big or small, to God's glory.
 
 Blessings to all, Merry Christmas 2025!
+
+---
+
+Copyright 2025-2026 Stephen Swensen.
+
+Free for non-commercial use with attribution. No derivatives without permission.

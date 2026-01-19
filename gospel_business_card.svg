@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1125 675" width="3.75in" height="2.25in">
+  <defs>
+    <!-- Define gradient for background -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2c1810;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5d4037;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Safe area guide (not printed, just for reference) -->
+    <rect id="safeArea" x="112.5" y="67.5" width="900" height="540" fill="none" stroke="#00ff00" stroke-width="1" stroke-dasharray="5,5" opacity="0"/>
+  </defs>
+  
+  <!-- Full bleed background -->
+  <rect width="1125" height="675" fill="url(#bgGradient)"/>
+  
+  <!-- Decorative golden border (within safe area) -->
+  <rect x="130" y="85" width="865" height="505" fill="none" stroke="#d4af37" stroke-width="3" rx="8"/>
+  
+  <!-- Cross symbol at top -->
+  <text x="562.5" y="180" font-family="Arial, sans-serif" font-size="80" fill="#d4af37" text-anchor="middle">✠</text>
+  
+  <!-- Main title -->
+  <text x="562.5" y="280" font-family="Georgia, serif" font-size="48" font-weight="bold" fill="#f5deb3" text-anchor="middle">The Gospel in Illustrations</text>
+  
+  <!-- Subtitle -->
+  <text x="562.5" y="330" font-family="Georgia, serif" font-size="24" fill="#f5deb3" text-anchor="middle" font-style="italic">The Life of Jesus Christ in Word and Image</text>
+  
+  <!-- Decorative line -->
+  <line x1="300" y1="370" x2="825" y2="370" stroke="#d4af37" stroke-width="2"/>
+  
+  <!-- Description -->
+  <text x="562.5" y="420" font-family="Georgia, serif" font-size="20" fill="#f5deb3" text-anchor="middle">19 illustrated scenes from the Gospels</text>
+  
+  <!-- Website -->
+  <text x="562.5" y="500" font-family="Georgia, serif" font-size="32" font-weight="bold" fill="#ffd700" text-anchor="middle">illustratedgospel.faith</text>
+  
+  <!-- Small tagline -->
+  <text x="562.5" y="545" font-family="Georgia, serif" font-size="18" fill="#d4af37" text-anchor="middle">From the Annunciation to the Ascension</text>
+</svg>

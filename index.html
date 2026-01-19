@@ -40,6 +40,18 @@
         
         /* Print styles */
         @media print {
+            @page {
+                size: letter landscape;
+                margin: 0.13in 0.5in;
+            }
+            
+            /* Suggest duplex printing (browser support varies) */
+            @page { marks: none; }
+            body { 
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
             body { background: white; }
             
             .header { 
